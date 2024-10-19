@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Todo } from '../models/todo';
+import { FilterEnum } from '../enums/filterEnum.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -41,15 +42,19 @@ export class TodoService {
     this.saveTodosToLocalStorage(updatedTodos);
   }
 
-  filterTodos(filter: 'all' | 'completed' | 'not-completed'): Observable<Todo[]> {
-    if (filter === 'all') {
-      return this.todos$;
-    } else if (filter === 'completed') {
-      return this.todos$.pipe(map(todos => todos.filter(todo => todo.completed)));
-    } else if (filter === 'not-completed') {
-      return this.todos$.pipe(map(todos => todos.filter(todo => !todo.completed)));
+  filterTodos(filter: FilterEnum): void {
+    let updatedTodos: Todo[];
+
+    if (filter === FilterEnum.ALL) {
+      updatedTodos = this.loadTodosFromLocalStorage();
+    } else if (filter === FilterEnum.COMPLETED) {
+      updatedTodos = this.todosSubject.value.filter(todo => todo.completed);
+    } else if (filter === FilterEnum.INCOMPLETED) {
+      updatedTodos = this.todosSubject.value.filter(todo => !todo.completed);
+    } else {
+      updatedTodos = this.todosSubject.value;
     }
-    return this.todos$;
+    this.todosSubject.next(updatedTodos);
   }
 
   updateTodoOrder(todos: Todo[]): void {

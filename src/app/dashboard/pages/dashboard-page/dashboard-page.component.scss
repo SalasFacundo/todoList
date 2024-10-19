@@ -1,0 +1,25 @@
+.page{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  background-color: #171717;
+  padding: 0 35%;
+  height: 100vh;
+
+  #header{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 60px;
+
+
+    #title{
+      font-size: 30px;
+    }
+  }
+
+  #todo-list{
+    margin-bottom: 30px;
+  }
+}

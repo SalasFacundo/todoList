@@ -1,0 +1,14 @@
+
+.todo-filter {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 10px;
+  color: white;
+  display: flex;
+  background: #25273c;
+  font-size: 14px;
+
+  span{
+    cursor: pointer
+  }
+}
