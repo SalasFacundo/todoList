@@ -57,6 +57,15 @@ export class TodoService {
     this.saveTodosToLocalStorage(todos);
   }
 
+  updateTodoStatus(id: number, completed: boolean): void {
+    const currentTodos = this.todosSubject.value;
+    const updatedTodos = currentTodos.map(todo =>
+      todo.id === id ? { ...todo, completed } : todo
+    );
+    this.todosSubject.next(updatedTodos);
+    this.saveTodosToLocalStorage(updatedTodos);
+  }
+
   private saveTodosToLocalStorage(todos: Todo[]) {
     localStorage.setItem(this.localStorageKey, JSON.stringify(todos));
   }

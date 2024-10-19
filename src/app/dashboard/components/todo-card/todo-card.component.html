@@ -1,5 +1,5 @@
 <div class="todo-card" cdkDrag>
-  <mat-checkbox></mat-checkbox>
+  <mat-checkbox [checked]="todo.completed" (change)="updateStatus($event)"></mat-checkbox>
   {{todo.title}}
   <mat-icon (click)="delete(todo.id)">delete</mat-icon>
 </div>
