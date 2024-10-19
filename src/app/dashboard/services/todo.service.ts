@@ -9,11 +9,14 @@ export class TodoService {
 
   private localStorageKey = 'todos';
   private todosSubject = new BehaviorSubject<Todo[]>(this.loadTodosFromLocalStorage());
-  todos$ = this.todosSubject.asObservable();
+  private todos$ = this.todosSubject.asObservable();
 
   constructor() {
-
     this.loadTodosFromLocalStorage();
+  }
+
+  getAllTodos(): Observable<Todo[]> {
+    return this.todos$;
   }
 
   addTodo(title: string) {
@@ -47,6 +50,11 @@ export class TodoService {
       return this.todos$.pipe(map(todos => todos.filter(todo => !todo.completed)));
     }
     return this.todos$;
+  }
+
+  updateTodoOrder(todos: Todo[]): void {
+    this.todosSubject.next(todos);
+    this.saveTodosToLocalStorage(todos);
   }
 
   private saveTodosToLocalStorage(todos: Todo[]) {

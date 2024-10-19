@@ -1,3 +1,5 @@
 <div class="todo-card" cdkDrag>
-  {{todo}}
+  <mat-checkbox></mat-checkbox>
+  {{todo.title}}
+  <mat-icon (click)="delete(todo.id)">delete</mat-icon>
 </div>
