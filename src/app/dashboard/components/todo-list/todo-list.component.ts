@@ -21,7 +21,6 @@ export class TodoListComponent implements OnInit{
   ngOnInit(): void {
     this.todoService.getAllTodos().subscribe( response => {
       this.list = response;
-      console.log(this.list)
     })
   }
 

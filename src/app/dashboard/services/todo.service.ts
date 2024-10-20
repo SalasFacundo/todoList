@@ -27,7 +27,6 @@ export class TodoService {
     todo.id = newId;
 
     const updatedTodos = [...currentTodos, todo];
-    console.log(updatedTodos)
     this.todosSubject.next(updatedTodos);
     this.saveTodosToLocalStorage(updatedTodos);
   }
@@ -68,6 +67,11 @@ export class TodoService {
     );
     this.todosSubject.next(updatedTodos);
     this.saveTodosToLocalStorage(updatedTodos);
+  }
+
+  findByTitle(title: string): boolean {
+    const allTodos = this.loadTodosFromLocalStorage();
+    return allTodos.some(todo => todo.title === title);
   }
 
   private saveTodosToLocalStorage(todos: Todo[]) {

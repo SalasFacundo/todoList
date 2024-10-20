@@ -19,6 +19,7 @@ export class NewTodoComponent implements OnInit{
 
   todoForm!: FormGroup;
   value = 'Clear me';
+  error = "";
 
   constructor(private formBuilder: FormBuilder, private todoService: TodoService, private notificationService: NotificationService) { }
 
@@ -35,8 +36,14 @@ export class NewTodoComponent implements OnInit{
   }
 
   newTodo(){
-    this.todoService.addTodo(this.todoForm.value);
-    this.todoForm.reset();
-    this.notificationService.showNotification("To-do was created")
+    if(this.todoForm.valid){
+      if(this.todoService.findByTitle(this.todoForm.controls["title"].value)){
+        this.error = "Todo is already exist"
+      } else {
+        this.todoService.addTodo(this.todoForm.value);
+        this.todoForm.reset();
+        this.notificationService.showNotification("To-do was created")
+      }
+    }
   }
 }

@@ -24,7 +24,6 @@ export class TodoCardComponent {
   }
 
   updateStatus(event: any){
-    console.log(event.checked)
     this.todoService.updateTodoStatus(this.todo.id, event.checked);
   }
 

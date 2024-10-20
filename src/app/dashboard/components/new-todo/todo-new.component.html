@@ -1,7 +1,18 @@
 <div class="todo-new">
    <form id="form" [formGroup]="todoForm">
     <mat-checkbox formControlName="completed"></mat-checkbox>
-    <input type="text" placeholder="Create a new todo..." formControlName="title">
-    <mat-icon (click)="newTodo()">check</mat-icon>
+    <input
+      type="text"
+      placeholder="Create a new todo..."
+      formControlName="title"
+      (keydown.enter)="newTodo()">
+    <div id="create" (click)="newTodo()">
+      @if(todoForm.valid){
+        <mat-icon>check</mat-icon>
+      }
+    </div>
    </form>
+   @if(error){
+     <div id="error_message">{{error}}</div>
+   }
 </div>
