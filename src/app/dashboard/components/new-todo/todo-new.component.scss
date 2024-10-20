@@ -1,0 +1,38 @@
+.todo-new {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  display: flex;
+  background: #25273c;
+  font-size: 14px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  color: white;
+
+  #form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+    mat-checkbox{width: 10%;}
+
+    input{
+      all:unset;
+      background-color: transparent;
+      color: white;
+      width: 80%;
+    }
+
+    mat-icon{
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 10%;}
+  }
+
+  span{
+    cursor: pointer
+  }
+}

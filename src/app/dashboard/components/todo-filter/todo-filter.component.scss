@@ -5,8 +5,10 @@
   padding: 20px 10px;
   color: white;
   display: flex;
-  background: #25273c;
+  background: rgba(37, 39, 60, 0.5);
   font-size: 14px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 
   span{
     cursor: pointer

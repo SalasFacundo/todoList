@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { Todo } from '../models/todo';
 import { FilterEnum } from '../enums/filterEnum.enum';
+import { Todo } from '../models/Todo';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +20,14 @@ export class TodoService {
     return this.todos$;
   }
 
-  addTodo(title: string) {
+  addTodo(todo: Todo) {
     const currentTodos = this.todosSubject.value;
     const newId = currentTodos.length > 0 ? Math.max(...currentTodos.map(todo => todo.id)) + 1 : 1;
 
-    const newTodo: Todo = {
-      id: newId,
-      title,
-      completed: false
-    };
+    todo.id = newId;
 
-    const updatedTodos = [...currentTodos, newTodo];
+    const updatedTodos = [...currentTodos, todo];
+    console.log(updatedTodos)
     this.todosSubject.next(updatedTodos);
     this.saveTodosToLocalStorage(updatedTodos);
   }
@@ -45,17 +42,19 @@ export class TodoService {
   filterTodos(filter: FilterEnum): void {
     let updatedTodos: Todo[];
 
+    const allTodos = this.loadTodosFromLocalStorage();
     if (filter === FilterEnum.ALL) {
-      updatedTodos = this.loadTodosFromLocalStorage();
+      updatedTodos = allTodos;
     } else if (filter === FilterEnum.COMPLETED) {
-      updatedTodos = this.todosSubject.value.filter(todo => todo.completed);
+      updatedTodos = allTodos.filter(todo => todo.completed === true);
     } else if (filter === FilterEnum.INCOMPLETED) {
-      updatedTodos = this.todosSubject.value.filter(todo => !todo.completed);
+      updatedTodos = allTodos.filter(todo => todo.completed === false);
     } else {
-      updatedTodos = this.todosSubject.value;
+      updatedTodos = allTodos;
     }
     this.todosSubject.next(updatedTodos);
   }
+
 
   updateTodoOrder(todos: Todo[]): void {
     this.todosSubject.next(todos);

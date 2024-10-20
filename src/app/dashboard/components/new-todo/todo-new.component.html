@@ -1,0 +1,7 @@
+<div class="todo-new">
+   <form id="form" [formGroup]="todoForm">
+    <mat-checkbox formControlName="completed"></mat-checkbox>
+    <input type="text" placeholder="Create a new todo..." formControlName="title">
+    <mat-icon (click)="newTodo()">check</mat-icon>
+   </form>
+</div>

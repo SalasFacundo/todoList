@@ -3,7 +3,7 @@ import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/d
 import { CommonModule } from '@angular/common';
 import { TodoCardComponent } from '../todo-card/todo-card.component';
 import { TodoService } from '../../services/todo.service';
-import { Todo } from '../../models/todo';
+import { Todo } from '../../models/Todo';
 
 @Component({
   selector: 'todo-list',

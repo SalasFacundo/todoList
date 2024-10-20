@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Todo } from '../../models/todo';
+import { Todo } from '../../models/Todo';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import { TodoService } from '../../services/todo.service';
