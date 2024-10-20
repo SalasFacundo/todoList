@@ -74,6 +74,25 @@ export class TodoService {
     return allTodos.some(todo => todo.title === title);
   }
 
+  completeAll(): void {
+    const currentTodos = this.todosSubject.value;
+    const updatedTodos = currentTodos.map(todo => ({ ...todo, completed: true }));
+    this.todosSubject.next(updatedTodos);
+    this.saveTodosToLocalStorage(updatedTodos);
+  }
+
+  clearCompleted(): void {
+    const currentTodos = this.todosSubject.value;
+    const updatedTodos = currentTodos.filter(todo => !todo.completed);
+    this.todosSubject.next(updatedTodos);
+    this.saveTodosToLocalStorage(updatedTodos);
+  }
+
+  deleteAll(): void {
+    this.todosSubject.next([]);
+    this.saveTodosToLocalStorage([]);
+  }
+
   private saveTodosToLocalStorage(todos: Todo[]) {
     localStorage.setItem(this.localStorageKey, JSON.stringify(todos));
   }

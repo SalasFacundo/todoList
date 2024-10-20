@@ -23,4 +23,8 @@ export class TodoFilterComponent {
     }
   }
 
+  completeAll(){this.todoService.completeAll()}
+  deleteAll(){this.todoService.deleteAll()}
+  clearCompleted(){this.todoService.clearCompleted();}
+
 }

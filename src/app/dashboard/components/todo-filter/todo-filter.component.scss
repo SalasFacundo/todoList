@@ -1,7 +1,7 @@
 
-.todo-filter {
+.todo_filter {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px 10px;
   color: white;
   display: flex;
@@ -9,8 +9,23 @@
   font-size: 14px;
   border-radius: 15px;
   backdrop-filter: blur(10px);
+  margin-bottom: 15px;
 
   span{
+    text-align: center;
+    width: 33.3%;
+    cursor: pointer
+  }
+}
+
+.todo_actions{
+  display: flex;
+  justify-content: space-between;
+  color: rgb(172, 170, 170);
+
+  span{
+    text-align: center;
+    width: 33.3%;
     cursor: pointer
   }
 }

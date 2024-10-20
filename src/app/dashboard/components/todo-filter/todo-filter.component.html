@@ -1,5 +1,10 @@
-<div class="todo-filter">
+<div class="todo_filter">
   <span (click)="filter('all')">All</span>
   <span (click)="filter('completed')">Active</span>
   <span (click)="filter('incompleted')">Incompleted</span>
+</div>
+<div class="todo_actions">
+  <span (click)="completeAll()">Complete All</span>
+  <span (click)="deleteAll()">Delete All</span>
+  <span (click)="clearCompleted()">Clear Completed</span>
 </div>
