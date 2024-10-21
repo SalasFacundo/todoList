@@ -4,21 +4,32 @@
   flex-direction: column;
   margin: auto;
   background-color: #171717;
-  padding: 0 35%;
+  box-sizing: border-box;
 
-  #header {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin: 60px 0;
+  #content {
+    margin: auto;
+    width: 600px;
+    #header {
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      margin: 60px 0;
 
 
-    #title {
-      font-size: 30px;
+      #title {
+        font-size: 30px;
+      }
     }
-  }
 
-  #filter {
-    margin-bottom: 30px;
+    #filter {
+      margin-bottom: 30px;
+    }
+
+  }
+}
+
+@media (max-width: 700px) {
+  #content {
+    width: 350px !important;
   }
 }
