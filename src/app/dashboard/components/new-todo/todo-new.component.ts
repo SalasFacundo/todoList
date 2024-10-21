@@ -41,9 +41,14 @@ export class NewTodoComponent implements OnInit{
         this.error = "Todo is already exist"
       } else {
         this.todoService.addTodo(this.todoForm.value);
-        this.todoForm.reset();
+        this.clearForm();
         this.notificationService.showNotification("To-do was created")
       }
     }
+  }
+
+  clearForm(){
+    this.todoForm.reset();
+    this.todoForm.controls["completed"].setValue(false);
   }
 }

@@ -1,0 +1,10 @@
+<div class="dialog">
+  <h4 mat-dialog-title>Confirmation</h4>
+  <mat-dialog-content>
+    <p>¿Are you sure?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close(false)">No </button>
+    <button mat-button (click)="dialogRef.close(true)">Yes</button>
+  </mat-dialog-actions>
+</div>
