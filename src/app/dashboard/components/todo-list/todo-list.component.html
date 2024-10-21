@@ -1,5 +1,13 @@
 <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
-  @for (todo of list; track todo) {
+  @if(list.length > 0){
+  <div id="list">
+    @for (todo of list; track todo) {
     <todo-card [todo]="todo"></todo-card>
+    }
+  </div>
+  <p id="instructions">Drag and drop to reorder list</p>
+  }
+  @else{
+  <p id="no_todos">There are no to-dos. Create some.</p>
   }
 </div>

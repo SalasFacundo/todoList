@@ -32,9 +32,8 @@ export class TodoCardComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       if(result){
         this.todoService.deleteTodo(id);
-        //this.notificationService.showNotification()
+        this.notificationService.showNotification(`${this.todo.title} was deleted`);
       }
     });
   }
-
 }
