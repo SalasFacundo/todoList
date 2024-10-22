@@ -5,7 +5,8 @@
       type="text"
       placeholder="Create a new todo..."
       formControlName="title"
-      (keydown.enter)="newTodo()">
+      (keydown.enter)="newTodo()"
+      maxlength ="50">
     <div id="create" (click)="newTodo()">
       @if(todoForm.valid){
         <mat-icon>check</mat-icon>
