@@ -2,9 +2,8 @@
   @for (todo of list; track todo) {
   <todo-card [todo]="todo"></todo-card>
   }
-
   @if(list.length == 0 ){
-    <p id="no_todos">There are no to-dos. Create some.</p>
+  <p id="no_todos">{{emptyMessage()}}</p>
   }
   <div id="filter">
     <span (click)="openModal('deleteAll')" style="width: 30%;">Delete All</span>

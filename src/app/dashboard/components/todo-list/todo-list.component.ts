@@ -71,4 +71,14 @@ export class TodoListComponent implements OnInit{
     }
   }
 
+  emptyMessage(): string {
+    if (this.selectedFilter === 'completed') {
+      return 'There are no completed to-dos.';
+    } else if (this.selectedFilter === 'incompleted') {
+      return 'There are no incompleted to-dos.';
+    } else {
+      return 'There are no to-dos. Create some.';
+    }
+  }
+
 }
