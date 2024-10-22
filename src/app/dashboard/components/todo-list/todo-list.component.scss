@@ -5,9 +5,24 @@
   border-radius: 15px;
   overflow: hidden;
 
-  #list{
-    border-radius: 15px !important;
-    color: red !important;
+  #filter{
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background-color: #25273c;
+    color: grey;
+    border-radius: 0 0 15px 15px;
+
+    .selected{
+      color: aqua;
+    }
+    span{
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
   }
 
   #instructions{

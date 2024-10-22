@@ -1,9 +1,16 @@
 <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
   @if(list.length > 0){
-  <div id="list">
-    @for (todo of list; track todo) {
-    <todo-card [todo]="todo"></todo-card>
-    }
+  @for (todo of list; track todo) {
+  <todo-card [todo]="todo"></todo-card>
+  }
+  <div id="filter">
+    <span (click)="openModal('deleteAll')" style="width: 30%;">Delete All</span>
+    <div style="width: 60%;">
+      <span (click)="filter('all')" [ngClass]="{'selected': selectedFilter == 'all'}">All</span>
+      <span (click)="filter('completed')" [ngClass]="{'selected': selectedFilter == 'completed'}">Completed</span>
+      <span (click)="filter('incompleted')" [ngClass]="{'selected': selectedFilter == 'incompleted'}">Incompleted</span>
+    </div>
+    <span (click)="openModal('deleteCompleted')" style="width: 30%;">Clear Completed</span>
   </div>
   <p id="instructions">Drag and drop to reorder list</p>
   }
