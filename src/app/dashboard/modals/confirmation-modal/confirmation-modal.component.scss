@@ -12,3 +12,10 @@
 mat-dialog-container {
   background-color: greenyellow !important;
 }
+
+
+@media (max-width: 700px) {
+  .dialog {
+    width: auto !important;
+  }
+}
