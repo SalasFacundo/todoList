@@ -64,7 +64,7 @@ export class TodoListComponent implements OnInit{
     console.log(this.selectedFilter)
     const filterOption = FilterEnum[option.toUpperCase() as keyof typeof FilterEnum];
 
-    if (filterOption && this.list.length > 0) {
+    if (filterOption) {
       this.todoService.filterTodos(filterOption);
     } else {
       console.error('Invalid filter option');

@@ -1,7 +1,10 @@
 <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
-  @if(list.length > 0){
   @for (todo of list; track todo) {
   <todo-card [todo]="todo"></todo-card>
+  }
+
+  @if(list.length == 0 ){
+    <p id="no_todos">There are no to-dos. Create some.</p>
   }
   <div id="filter">
     <span (click)="openModal('deleteAll')" style="width: 30%;">Delete All</span>
@@ -13,8 +16,4 @@
     <span (click)="openModal('deleteCompleted')" style="width: 30%;">Clear Completed</span>
   </div>
   <p id="instructions">Drag and drop to reorder list</p>
-  }
-  @else{
-  <p id="no_todos">There are no to-dos. Create some.</p>
-  }
 </div>
