@@ -6,6 +6,7 @@
   overflow: hidden;
 
   #filter{
+    user-select: none;
     text-align: center;
     font-size: 15px;
     display: flex;
@@ -35,5 +36,24 @@
     margin-top: 30px;
     text-align: center;
     color: grey;
+  }
+}
+
+@media (max-width: 700px) {
+  #filter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters {
+    order: 1; /* Mueve los filtros hacia arriba */
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .action {
+    order: 2; /* Mueve los botones de acción hacia abajo */
+    width: 100%;
+    margin-top: 10px;
   }
 }

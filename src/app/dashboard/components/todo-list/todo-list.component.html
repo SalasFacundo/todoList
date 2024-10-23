@@ -6,13 +6,13 @@
   <p id="no_todos">{{emptyMessage()}}</p>
   }
   <div id="filter">
-    <span (click)="openModal('deleteAll')" style="width: 30%;">Delete All</span>
-    <div style="width: 60%;">
+    <span (click)="openModal('deleteCompleted')" class="action">Clear Completed</span>
+    <div class="filters">
       <span (click)="filter('all')" [ngClass]="{'selected': selectedFilter == 'all'}">All</span>
       <span (click)="filter('completed')" [ngClass]="{'selected': selectedFilter == 'completed'}">Completed</span>
       <span (click)="filter('incompleted')" [ngClass]="{'selected': selectedFilter == 'incompleted'}">Incompleted</span>
     </div>
-    <span (click)="openModal('deleteCompleted')" style="width: 30%;">Clear Completed</span>
+    <span (click)="openModal('deleteAll')" class="action">Delete All</span>
   </div>
   <p id="instructions">Drag and drop to reorder list</p>
 </div>
